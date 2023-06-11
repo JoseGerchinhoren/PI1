@@ -68,7 +68,7 @@ def cantidad_filmaciones_dia(dia: str): # Devuelve la cantidad de filmaciones
             contador += 1
 
     # return f"{contador} películas fueron estrenadas en los días {dia.capitalize()}" # capitalize() convierte el primer carácter de una cadena en mayúscula y el resto de los caracteres en minúscula.
-    {'dia':dia.capitalize(), 'cantidad':contador}
+    return {'dia':dia.capitalize(), 'cantidad':contador}
 
 # Definir la función
 @app.get("/score_titulo/{titulo_de_la_filmacion}")
