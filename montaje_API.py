@@ -1,19 +1,38 @@
 from fastapi import FastAPI
 import pandas as pd
 import datetime
-from typing import Dict
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+from nltk.corpus import stopwords
+
 
 # Crear una instancia de la aplicación
 app = FastAPI()
 
 # Cargar el dataset en un DataFrame, se divide en dos partes para poder subirlo a github
 # Parte1
-parte1 = pd.read_csv('data_preparada_movies_José_parte1.csv')
+parte1 = pd.read_csv('PI\PI1\data_preparada_movies_parte1.csv')
 # Parte2
-parte2 = pd.read_csv('data_preparada_movies_José_parte2.csv')
+parte2 = pd.read_csv('PI\PI1\data_preparada_movies_parte2.csv')
 
 # Concatenar las partes del dataframe
 data = pd.concat([parte1, parte2], ignore_index=True)
+
+# Eliminamos registros duplicados
+data.drop_duplicates(inplace=True)
+
+# Necesario para funcion recomendacion:
+# Preprocesamiento de datos
+# Convertir los valores de la columna 'name_genres' en cadenas de texto
+data['name_genres'] = data['name_genres'].apply(lambda x: ' '.join(eval(x)))
+
+# Crear una matriz TF-IDF para el texto del título de las películas
+tfidf = TfidfVectorizer(stop_words=stopwords.words('english'))
+tfidf_matrix = tfidf.fit_transform(data['title'])
+
+# Calcular la similitud del coseno entre los títulos de las películas
+cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
+
 
 # Definir la función con el decorador
 @app.get("/cantidad_filmaciones_mes/{mes}")
@@ -170,6 +189,31 @@ def get_director(nombre_director: str):
     }
     
     return respuesta
+
+@app.get('/recomendacion/{titulo}')
+def recomendacion(titulo):
+    # Verificar si el título está en el DataFrame
+    if titulo not in data['title'].values:
+        return f"No se encontró ninguna película con el título '{titulo}'."
+
+    # Encontrar el índice de la película con el título dado
+    indices = pd.Series(data.index, index=data['title']).drop_duplicates()
+    idx = indices[titulo]
+
+    # Calcular las puntuaciones de similitud de todas las películas con la película dada
+    sim_scores = list(enumerate(cosine_similarities[idx]))
+
+    # Ordenar las películas por puntaje de similitud en orden descendente
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+
+    # Obtener los índices de las películas más similares (excluyendo la película dada)
+    sim_scores = sim_scores[1:6]  # Obtener las 5 películas más similares
+    movie_indices = [x[0] for x in sim_scores]
+
+    # Devolver los títulos de las películas más similares
+    respuesta_recomendacion = data['title'].iloc[movie_indices].tolist()
+    return {'lista recomendada': respuesta_recomendacion}
+
 
 # Ejecutar la aplicación con Uvicorn
 if __name__ == '__main__':
