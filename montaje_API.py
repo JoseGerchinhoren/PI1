@@ -3,7 +3,6 @@ import pandas as pd
 import datetime
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
-from nltk.corpus import stopwords
 
 
 # Crear una instancia de la aplicación
@@ -27,7 +26,8 @@ data.drop_duplicates(inplace=True)
 data['name_genres'] = data['name_genres'].apply(lambda x: ' '.join(eval(x)))
 
 # Crear una matriz TF-IDF para el texto del título de las películas
-tfidf = TfidfVectorizer(stop_words=stopwords.words('english'))
+stopwords_custom = ["the", "and", "in", "of"]  # Agrega aquí tus stopwords personalizados
+tfidf = TfidfVectorizer(stop_words=stopwords_custom)
 tfidf_matrix = tfidf.fit_transform(data['title'])
 
 # Calcular la similitud del coseno entre los títulos de las películas
