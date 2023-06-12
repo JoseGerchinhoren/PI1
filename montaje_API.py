@@ -10,8 +10,6 @@ app = FastAPI()
 
 # Cargamos el dataframe
 data = pd.read_csv('data_preparada_ML.csv')
-# Eliminamos registros duplicados
-data.drop_duplicates(inplace=True)
 
 # Necesario para funcion recomendacion:
 # Preprocesamiento de datos
