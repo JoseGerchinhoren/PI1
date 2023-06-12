@@ -3,20 +3,12 @@ import pandas as pd
 import datetime
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
-import pickle
 
 
 # Crear una instancia de la aplicación
 app = FastAPI()
 
-# Cargar el dataset en un DataFrame, se divide en dos partes para poder subirlo a github
-# Parte1
-# parte1 = pd.read_csv('data_preparada_movies_parte1.csv')
-# Parte2
-# parte2 = pd.read_csv('data_preparada_movies_parte2.csv')
-
-# Concatenar las partes del dataframe
-# data = pd.concat([parte1, parte2], ignore_index=True)
+# Cargamos el dataframe
 data = pd.read_csv('data_preparada_ML.csv')
 # Eliminamos registros duplicados
 data.drop_duplicates(inplace=True)
@@ -33,11 +25,6 @@ tfidf_matrix = tfidf.fit_transform(data['title'])
 
 # Calcular la similitud del coseno entre los títulos de las películas
 cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
-
-# Guardar el objeto 'data' utilizando pickle.dump()
-with open('data.pickle', 'wb') as f:
-    pickle.dump(data, f)
-
 
 # Definir la función con el decorador
 @app.get("/cantidad_filmaciones_mes/{mes}")
@@ -197,10 +184,6 @@ def get_director(nombre_director: str):
 
 @app.get('/recomendacion/{titulo}')
 def recomendacion(titulo):
-    # Cargar el objeto 'data' desde el archivo utilizando pickle.load()
-    with open('data.pickle', 'rb') as f:
-        data = pickle.load(f)
-        
     # Verificar si el título está en el DataFrame
     if titulo not in data['title'].values:
         return f"No se encontró ninguna película con el título '{titulo}'."
