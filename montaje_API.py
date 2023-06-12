@@ -11,9 +11,9 @@ app = FastAPI()
 
 # Cargar el dataset en un DataFrame, se divide en dos partes para poder subirlo a github
 # Parte1
-parte1 = pd.read_csv('PI\PI1\data_preparada_movies_parte1.csv')
+parte1 = pd.read_csv('data_preparada_movies_parte1.csv')
 # Parte2
-parte2 = pd.read_csv('PI\PI1\data_preparada_movies_parte2.csv')
+parte2 = pd.read_csv('data_preparada_movies_parte2.csv')
 
 # Concatenar las partes del dataframe
 data = pd.concat([parte1, parte2], ignore_index=True)
