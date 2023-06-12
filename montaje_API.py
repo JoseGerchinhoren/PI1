@@ -17,7 +17,7 @@ app = FastAPI()
 
 # Concatenar las partes del dataframe
 # data = pd.concat([parte1, parte2], ignore_index=True)
-data = pd.read_csv('data_preparada_movies_parte1.csv')
+data = pd.read_csv('data_preparada_ML.csv')
 # Eliminamos registros duplicados
 data.drop_duplicates(inplace=True)
 
