@@ -205,8 +205,11 @@ El recurso externo que mayormente use para crear mi proyecto es chatGPT.
 
 ## Contacto
 Telefono celular: +543875990930
+
 Email: josegerchinhoren97@gmail.com
+
 Linkedin: José Gerchinhoren, link: https://www.linkedin.com/in/jos%C3%A9-gerchinhoren-102573249/
+
 Instagram: josegerchinhoren
 
 ## Video del proyecto:
