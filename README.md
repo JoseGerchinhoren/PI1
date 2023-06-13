@@ -26,9 +26,6 @@ El cual posee los archivos:
 * montaje_API.py : Archivo python que contiene el codigo para montar la API con las funciones.
 * requirements.txt : Archivo que contiene las librerias con la version necesaria de cada una para el proyecto.
 
-* movies_dataset.csv y credits.csv : Datasets necesarios.
-* Diccionario de Datos - Movies.xlsx : Archivo excel donde se encuentra el diccionario de datos.
-
 
 ## Instalación
 
@@ -46,11 +43,11 @@ En este notebook se encuentra el proceso detallado de la preparacion de los dato
 
 2° ejecutar: PI1_análisis_exploratorio_datos_José.ipynb
 
-En este notebook se encuentra un analisis exploratorio de los datos (EDA) donde se pueden vizualizar graficas y otro donde las palabras frecuentes de los titulos estan en un gráfico de nube de palabras.
+En este notebook se encuentra un analisis exploratorio de los datos (EDA) donde se pueden vizualizar graficos y una nube de palabras frecuentes de los titulos.
 
 3° ejecutar: montaje_API.py
 
-En este archivo de python se encuentra el codigo para montar la API de forma local utilizando fastAPI.
+En este archivo de python se encuentra el codigo para crear la API de forma local utilizando fastAPI.
 
 ## Deployment
 
@@ -203,18 +200,14 @@ Obtiene los índices de las películas más similares (excluyendo la película d
 
 Devuelve una lista con los títulos de las 5 películas más similares como resultado.
 
-
 ## Créditos
 El recurso externo que mayormente use para crear mi proyecto es chatGPT.
-Agradezco a mis compañeros que me solucionaron ciertas dudas.
 
 ## Contacto
 Telefono celular: +543875990930
 Email: josegerchinhoren97@gmail.com
-Instagram: josegerchinhoren
 Linkedin: José Gerchinhoren, link: https://www.linkedin.com/in/jos%C3%A9-gerchinhoren-102573249/
-
-
+Instagram: josegerchinhoren
 
 ## Video del proyecto:
 
