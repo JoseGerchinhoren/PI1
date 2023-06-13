@@ -1,4 +1,4 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+![HenryLogo](https://assets.soyhenry.com/henry-landing/assets/Henry/logo-white.png)
 
 # Proyecto Individual 1: Machine Learning Operations (MLOps)
 
