@@ -25,7 +25,7 @@ El cual posee los archivos:
 * data_preparada_ML.csv : Dataset para ser consumido por el modelo de ML.
 * montaje_API.py : Archivo python que contiene el codigo para montar la API con las funciones.
 * requirements.txt : Archivo que contiene las librerias con la version necesaria de cada una para el proyecto.
-
+* Link_data.txt : Archivo donde se encuentra el link para descargar los dataset necesarios para el proyecto.
 
 ## Instalación
 
@@ -214,4 +214,4 @@ Instagram: josegerchinhoren
 
 ## Video del proyecto:
 
-Link del proyecto
+https://youtu.be/CQPf4UusCFo
