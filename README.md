@@ -200,6 +200,12 @@ Obtiene los índices de las películas más similares (excluyendo la película d
 
 Devuelve una lista con los títulos de las 5 películas más similares como resultado.
 
+## Pagina Web API
+https://josegerchinhoren-pi1.onrender.com/docs
+
+## Video del proyecto:
+https://youtu.be/CQPf4UusCFo
+
 ## Créditos
 El recurso externo que mayormente use para crear mi proyecto es chatGPT.
 
@@ -207,11 +213,5 @@ El recurso externo que mayormente use para crear mi proyecto es chatGPT.
 Telefono celular: +543875990930
 
 Email: josegerchinhoren97@gmail.com
-
 Linkedin: José Gerchinhoren, link: https://www.linkedin.com/in/jos%C3%A9-gerchinhoren-102573249/
-
 Instagram: josegerchinhoren
-
-## Video del proyecto:
-
-https://youtu.be/CQPf4UusCFo
